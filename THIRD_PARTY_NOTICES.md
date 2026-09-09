@@ -1,7 +1,9 @@
 # Third-party notices
 
-The liquid-refraction header effect is adapted from
+An earlier version of this site included a liquid-refraction header effect adapted from
 [`shuding/liquid-glass`](https://github.com/shuding/liquid-glass).
+
+The current header uses native CSS backdrop filtering. The original attribution and license are retained below for the earlier implementation.
 
 MIT License
 

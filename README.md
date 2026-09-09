@@ -1,13 +1,42 @@
-# WDM Product Site
+# WDM 宣传站
 
-Static product website for WDM · 智能工作助手.
+WDM 智能工作助手的静态宣传页。使用原生 HTML、CSS 和 JavaScript，可从仓库根目录通过 GitHub Pages 托管，无构建步骤，也不调用业务 API。
 
-## Local preview
+## 本地预览
 
-Serve this directory with any static HTTP server, then open `index.html`.
+在本目录运行：
 
-## Deployment
+```bash
+python -m http.server 4175 --bind 127.0.0.1
+```
 
-The site is designed to be hosted from the repository root with GitHub Pages.
+浏览器打开 `http://127.0.0.1:4175`。正式工作台链接集中在 `index.html` 的访问按钮中。
 
-Third-party license notices are available in `THIRD_PARTY_NOTICES.md`.
+## 文件职责
+
+- [index.html](index.html)：中文默认内容、内联 `data-en` 英文文案、语义结构和分享元数据。
+- [styles.css](styles.css)：深浅主题、毛玻璃面板、响应式布局、键盘焦点、滚动揭示与减少动画模式。
+- [site.js](site.js)：中英文和主题偏好、手机导航、截图切换、流程标签、键盘交互与视口进入动画。
+- `home-screen.png`、`login-screen.png`：真实产品截图；`og.png`：分享封面。
+- `fonts/`：本地字体资源，不依赖在线字体服务。
+- [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)：历史版本的第三方代码归属声明。
+
+## 内容维护
+
+功能事实来自 WDM 主项目的 `docs/domains/`、`docs/architecture/` 与对应代码。宣传页与主项目独立发布，功能变化后需同步核对中英文文案。
+
+- 日报、周报和提示词按用户隔离；不要宣传为默认团队共享。
+- 脚本区分私有与公共可见性，公共发布受管理员权限控制。
+- 自动任务支持定时和 Webhook，AI 能力来自外部 nanobot。
+- 流程面板是能力说明，截图是产品展示；不添加伪装成实时数据的运行数字、客户评价或效果指标。
+- 截图更新前检查是否包含不适合公开的账号信息。新增英文内容使用 `data-en`，同时更新需要翻译的辅助标签。
+
+## 验证与发布
+
+```bash
+node --check site.js
+```
+
+本地预览验证深浅主题、中英文、移动导航、两张截图、流程标签方向键与 Home/End、FAQ 展开、滚动进入动画、320px 至桌面尺寸的溢出和键盘焦点。减少动画模式下关闭过渡与入场动画；不支持背景模糊时使用实体背景回退。
+
+保持 `.nojekyll`、页面与资源的相对路径；部署时发布整个目录。代码修改不等于已推送或已上线。
