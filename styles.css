@@ -18,12 +18,12 @@
 }
 :root {
   color-scheme: dark;
-  --bg: #080f21;
-  --surface: #101b32;
+  --bg: #101318;
+  --surface: #191e26;
   --glass: rgba(22, 36, 62, 0.65);
-  --text: #f1f5ff;
-  --muted: #a5b4ce;
-  --blue: #77a7ff;
+  --text: #f2f4f7;
+  --muted: #a4abb7;
+  --blue: #8bafff;
   --button: #3878f2;
   --line: rgba(170, 194, 244, 0.17);
   --soft: rgba(112, 159, 255, 0.075);
@@ -32,7 +32,7 @@
 }
 :root[data-theme="light"] {
   color-scheme: light;
-  --bg: #f7f9fd;
+  --bg: #f6f7f9;
   --surface: #ffffff;
   --glass: rgba(255, 255, 255, 0.76);
   --text: #17233d;
@@ -174,10 +174,15 @@ h2 {
   border-radius: 18px;
   height: 66px;
   padding: 0 20px;
-  background: var(--glass);
+  border-color: rgba(174, 201, 255, 0.26);
+  background: linear-gradient(120deg, #c4dcff0d, #94baff03),
+    rgba(12, 23, 43, 0.48);
+  backdrop-filter: blur(30px) saturate(170%);
+  -webkit-backdrop-filter: blur(30px) saturate(170%);
   box-shadow:
-    inset 0 1px 0 #ffffff0a,
-    0 8px 40px #0000000c;
+    inset 0 1px 0 #ffffff24,
+    inset 0 -1px 0 #aecbff0a,
+    0 12px 36px #01071533;
 }
 .brand {
   display: flex;
@@ -217,6 +222,21 @@ h2 {
 }
 .icon-button:hover {
   background: var(--soft);
+}
+.theme-icon {
+  width: 18px;
+  height: 18px;
+}
+.theme-icon-moon,
+:root[data-theme="light"] .theme-icon-sun {
+  display: none;
+}
+:root[data-theme="light"] .theme-icon-moon {
+  display: block;
+}
+.external-icon {
+  width: 16px;
+  height: 16px;
 }
 .button {
   display: inline-flex;
@@ -685,7 +705,7 @@ h1 em {
   border-color: var(--line);
   color: var(--text);
 }
-.workflow-tabs button > span:last-child {
+.workflow-tabs .external-icon {
   margin-left: auto;
   color: var(--blue);
 }
@@ -905,6 +925,9 @@ footer p {
   margin: 0;
 }
 footer > a:last-child {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
   font-size: 11px;
   color: var(--muted);
 }
@@ -1209,7 +1232,7 @@ html[lang="en"] .hero-notes {
     gap: 6px;
     font-size: 11px;
   }
-  .workflow-tabs button > span:last-child {
+  .workflow-tabs .external-icon {
     display: none;
   }
   .step-number {
@@ -1342,7 +1365,9 @@ html[lang="en"] .hero-notes {
 @supports not (
   (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))
 ) {
-  .glass {
+  .glass,
+  :root .nav.glass,
+  :root[data-theme="light"] .nav.glass {
     background: var(--surface);
   }
 }
@@ -1398,8 +1423,9 @@ html[lang="en"] .hero-notes {
 
 /* 浅色主题把纸面、玻璃与流程焦点分成三个明确明度层级。 */
 :root[data-theme="light"] .nav {
-  border-color: rgba(70, 96, 145, 0.14);
-  background: rgba(255, 255, 255, 0.82);
+  border-color: rgba(70, 96, 145, 0.2);
+  background: linear-gradient(120deg, #ffffff40, #ffffff08),
+    rgba(255, 255, 255, 0.52);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.92),
     0 12px 38px rgba(35, 57, 99, 0.09);

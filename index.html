@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="theme-color" content="#080f21" />
+    <meta name="theme-color" content="#101318" />
     <meta
       name="description"
       content="WDM 智能工作助手：记录日报与周报，沉淀提示词和脚本，以定时任务与 Webhook 自动执行，让日常工作有积累。"
@@ -22,6 +22,7 @@
     <meta name="twitter:image" content="og.png" />
     <link rel="icon" href="logo.png" />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="refinement.css" />
     <title>WDM · 智能工作助手</title>
     <script>
       try {
@@ -55,7 +56,7 @@
             class="icon-button"
             aria-label="切换到浅色模式"
           >
-            ☀</button
+            <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" /></svg><svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.3 14.2A8.5 8.5 0 0 1 9.8 3.7 8.5 8.5 0 1 0 20.3 14.2Z" /></svg></button
           ><a
             data-en="Open workspace"
             class="button button-small"
@@ -82,25 +83,22 @@
             WDM · 智能工作助手
           </p>
           <h1>
-            <span data-en="Make today’s work">让每一次工作，</span><br /><span
-              data-en="the foundation"
-              >都成为下一次</span
-            ><br /><em><span data-en="for tomorrow.">的积累。</span></em>
+            <span data-en="Make today’s work">让今天的工作，</span><br />
+            <em data-en="work for tomorrow.">成为明天的积累。</em>
           </h1>
           <p
-            data-en="Capture progress. Keep what works. Automate the repeatable. &lt;br&gt;Bring reports, prompts, scripts, and recurring tasks into one workspace."
+            data-en="Capture progress. Reuse your best methods.&lt;br&gt; Bring reports, prompts, scripts, and automation into one workspace."
             class="hero-description"
           >
-            记下进展，留下方法，让重复的事自动完成。<br />把工作报告、提示词、脚本与自动任务，放进同一个工作台。
+            记录进展，复用方法，让重复的事自动完成。<br />报告、提示词、脚本与自动任务，在一个工作台里有序协作。
           </p>
           <div class="hero-actions">
             <a
-              data-en="Open workspace ↗"
               class="button"
               href="https://www.aiwdm.cn"
               target="_blank"
               rel="noopener noreferrer"
-              >进入工作台 <span aria-hidden="true">↗</span></a
+              ><span data-en="Open workspace">进入工作台</span><svg class="external-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" /></svg></a
             ><a
               data-en="See how it works ↓"
               class="text-link"
@@ -114,6 +112,70 @@
             ><span data-en="Schedules &amp; events">定时与事件触发</span>
           </div>
         </div>
+
+      </section>
+      <section id="experience" class="product-section wrap">
+        <div class="section-intro">
+          <div>
+            <p data-en="A clear home for your work" class="eyebrow">
+              你的工作，有一个清晰的入口
+            </p>
+            <h2 data-en="More capability. The same clarity.">
+              能力丰富，工作台依然清晰。
+            </h2>
+          </div>
+          <span data-en="Actual product interface" class="label"
+            >真实产品界面</span
+          >
+        </div>
+        <div class="product-frame glass">
+          <div class="browser-bar">
+            <div class="window-dots" aria-hidden="true">
+              <i></i><i></i><i></i>
+            </div>
+            <span>WDM / <span data-en="Workspace">智能工作助手</span></span>
+            <div class="screen-tabs" role="tablist" aria-label="产品截图">
+              <button
+                class="screen-tab"
+                id="screen-home"
+                role="tab"
+                aria-selected="true"
+                aria-controls="screenPanel"
+                data-screen="home"
+              >
+                <span data-en="Workspace">工作台</span></button
+              ><button
+                class="screen-tab"
+                id="screen-login"
+                role="tab"
+                aria-selected="false"
+                aria-controls="screenPanel"
+                tabindex="-1"
+                data-screen="login"
+              >
+                <span data-en="Sign in">登录页</span>
+              </button>
+            </div>
+          </div>
+          <div id="screenPanel" role="tabpanel" aria-labelledby="screen-home">
+            <img
+              id="productImage"
+              src="home-screen.png"
+              alt="WDM 工作台真实界面"
+              width="2560"
+              height="1351"
+              fetchpriority="high"
+            />
+          </div>
+        </div>
+        <p
+          data-en="Screenshots illustrate the product; displayed data is not live."
+          class="screen-caption"
+        >
+          界面截图仅用于产品展示，显示内容不代表实时运行数据。
+        </p>
+      </section>
+      <section class="method-overview wrap" aria-label="工作方法概览">
         <div class="work-map" aria-label="工作流示意">
           <div class="map-top">
             <span class="map-dot"></span
@@ -242,67 +304,6 @@
             >
           </div>
         </div>
-      </section>
-      <section id="experience" class="product-section wrap">
-        <div class="section-intro">
-          <div>
-            <p data-en="A clear home for your work" class="eyebrow">
-              你的工作，有一个清晰的入口
-            </p>
-            <h2 data-en="More capability. The same clarity.">
-              能力丰富，工作台依然清晰。
-            </h2>
-          </div>
-          <span data-en="Actual product interface" class="label"
-            >真实产品界面</span
-          >
-        </div>
-        <div class="product-frame glass">
-          <div class="browser-bar">
-            <div class="window-dots" aria-hidden="true">
-              <i></i><i></i><i></i>
-            </div>
-            <span>WDM / <span data-en="Workspace">智能工作助手</span></span>
-            <div class="screen-tabs" role="tablist" aria-label="产品截图">
-              <button
-                class="screen-tab"
-                id="screen-home"
-                role="tab"
-                aria-selected="true"
-                aria-controls="screenPanel"
-                data-screen="home"
-              >
-                <span data-en="Workspace">工作台</span></button
-              ><button
-                class="screen-tab"
-                id="screen-login"
-                role="tab"
-                aria-selected="false"
-                aria-controls="screenPanel"
-                tabindex="-1"
-                data-screen="login"
-              >
-                <span data-en="Sign in">登录页</span>
-              </button>
-            </div>
-          </div>
-          <div id="screenPanel" role="tabpanel" aria-labelledby="screen-home">
-            <img
-              id="productImage"
-              src="home-screen.png"
-              alt="WDM 工作台真实界面"
-              width="2560"
-              height="1351"
-              fetchpriority="high"
-            />
-          </div>
-        </div>
-        <p
-          data-en="Screenshots illustrate the product; displayed data is not live."
-          class="screen-caption"
-        >
-          界面截图仅用于产品展示，显示内容不代表实时运行数据。
-        </p>
       </section>
       <section id="capabilities" class="section wrap">
         <div class="section-intro">
@@ -541,7 +542,7 @@
               >
                 <span class="step-number">01</span
                 ><span data-en="Save a method">沉淀方法</span
-                ><span aria-hidden="true">↗</span></button
+                ><svg class="external-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" /></svg></button
               ><button
                 role="tab"
                 id="step-1"
@@ -552,7 +553,7 @@
               >
                 <span class="step-number">02</span
                 ><span data-en="Set a trigger">设置触发</span
-                ><span aria-hidden="true">↗</span></button
+                ><svg class="external-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" /></svg></button
               ><button
                 role="tab"
                 id="step-2"
@@ -563,7 +564,7 @@
               >
                 <span class="step-number">03</span
                 ><span data-en="Review results">查看结果</span
-                ><span aria-hidden="true">↗</span>
+                ><svg class="external-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" /></svg>
               </button>
             </div>
           </div>
@@ -830,12 +831,11 @@
             让记录成为方法，让方法进入日常。
           </p>
           <a
-            data-en="Open WDM workspace ↗"
             class="button"
             href="https://www.aiwdm.cn"
             target="_blank"
             rel="noopener noreferrer"
-            >进入 WDM 工作台 <span aria-hidden="true">↗</span></a
+            ><span data-en="Open WDM workspace">进入 WDM 工作台</span><svg class="external-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" /></svg></a
           >
         </div>
       </section>
@@ -848,7 +848,7 @@
         智能工作助手 · 让日常工作有积累
       </p>
       <a href="https://www.aiwdm.cn" target="_blank" rel="noopener noreferrer"
-        >aiwdm.cn ↗</a
+        >aiwdm.cn <svg class="external-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" /></svg></a
       >
     </footer>
   </body>

@@ -16,6 +16,7 @@ python -m http.server 4175 --bind 127.0.0.1
 
 - [index.html](index.html)：中文默认内容、内联 `data-en` 英文文案、语义结构和分享元数据。
 - [styles.css](styles.css)：深浅主题、毛玻璃面板、响应式布局、键盘焦点、滚动揭示与减少动画模式。
+- [refinement.css](refinement.css)：产品截图优先的简约布局、液态玻璃控件与面板、字号和间距优化；在基础样式后加载。
 - [site.js](site.js)：中英文和主题偏好、手机导航、截图切换、流程标签、键盘交互与视口进入动画。
 - `home-screen.png`、`login-screen.png`：真实产品截图；`og.png`：分享封面。
 - `fonts/`：本地字体资源，不依赖在线字体服务。

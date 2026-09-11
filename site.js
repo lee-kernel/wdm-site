@@ -30,7 +30,6 @@ function updateControls() {
     "aria-label",
     english ? "切换到中文" : "Switch to English",
   );
-  themeButton.textContent = dark ? "☀" : "☾";
   themeButton.setAttribute(
     "aria-label",
     english
@@ -64,6 +63,10 @@ function updateControls() {
       "aria-label",
       english ? "Illustrated workflow" : "工作流示意",
     );
+  document.querySelector(".method-overview").setAttribute(
+    "aria-label",
+    english ? "Work method overview" : "工作方法概览",
+  );
   document
     .querySelector(".screen-tabs")
     .setAttribute("aria-label", english ? "Product screenshots" : "产品截图");
@@ -78,8 +81,8 @@ function updateControls() {
       ? "WDM 工作台真实界面"
       : "WDM 登录页真实界面";
   document.querySelector('meta[name="theme-color"]').content = dark
-    ? "#080f21"
-    : "#f3f6fc";
+    ? "#101318"
+    : "#f6f7f9";
 }
 function applyLanguage() {
   root.lang = language === "en" ? "en" : "zh-CN";
