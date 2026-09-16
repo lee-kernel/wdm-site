@@ -22,15 +22,9 @@
     <meta name="twitter:image" content="og.png" />
     <link rel="icon" href="logo.png" />
     <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="refinement.css" />
+    <link rel="stylesheet" href="refinement.css?v=9" />
     <title>WDM · 智能工作助手</title>
-    <script>
-      try {
-        document.documentElement.dataset.theme =
-          localStorage.getItem("wdm-theme") === "light" ? "light" : "dark";
-      } catch {}
-    </script>
-    <script src="site.js" defer></script>
+    <script src="site.js?v=5" defer></script>
   </head>
   <body id="top">
     <a data-en="Skip to content" class="skip" href="#main">跳转到主要内容</a>
@@ -51,12 +45,6 @@
             aria-label="Switch to English"
           >
             EN</button
-          ><button
-            id="themeToggle"
-            class="icon-button"
-            aria-label="切换到浅色模式"
-          >
-            <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" /></svg><svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.3 14.2A8.5 8.5 0 0 1 9.8 3.7 8.5 8.5 0 1 0 20.3 14.2Z" /></svg></button
           ><a
             data-en="Open workspace"
             class="button button-small"
@@ -79,9 +67,6 @@
     <main id="main">
       <section class="hero wrap">
         <div class="hero-copy">
-          <p data-en="WDM · Your intelligent workspace" class="eyebrow">
-            WDM · 智能工作助手
-          </p>
           <h1>
             <span data-en="Make today’s work">让今天的工作，</span><br />
             <em data-en="work for tomorrow.">成为明天的积累。</em>
@@ -112,7 +97,29 @@
             ><span data-en="Schedules &amp; events">定时与事件触发</span>
           </div>
         </div>
-
+        <div class="hero-field" aria-hidden="true">
+          <video class="hero-backdrop-video" autoplay muted loop playsinline preload="metadata">
+            <source src="assets/stitch-background.mp4" type="video/mp4" />
+          </video>
+          <canvas class="field-canvas"></canvas>
+          <span class="field-vignette"></span>
+        </div>
+        <div class="hero-console glass">
+          <div class="console-topline">
+            <span class="console-status"><i></i><span data-en="WORKFLOW READY">工作流已就绪</span></span>
+            <span class="console-id">WDM / 01</span>
+          </div>
+          <p class="console-prompt" data-en="What from today is worth turning into tomorrow’s method?">今天的工作里，有什么值得成为明天的方法？</p>
+          <div class="console-bottom">
+            <div class="console-chips" aria-label="工作内容类型">
+              <span data-en="Daily report">日报</span>
+              <span data-en="Prompt">提示词</span>
+              <span data-en="Script">脚本</span>
+              <span data-en="Automation">自动任务</span>
+            </div>
+            <a class="console-run" href="https://www.aiwdm.cn" target="_blank" rel="noopener noreferrer" aria-label="进入 WDM 工作台"><span data-en="Start">开始</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" /></svg></a>
+          </div>
+        </div>
       </section>
       <section id="experience" class="product-section wrap">
         <div class="section-intro">
@@ -184,7 +191,7 @@
             ><small data-en="Illustration">能力示意</small>
           </div>
           <div class="map-body">
-            <article class="map-card map-report glass">
+            <article class="map-card map-report" data-step="01">
               <div class="map-icon">
                 <svg
                   viewBox="0 0 24 24"
@@ -213,7 +220,7 @@
             <div class="map-connector" aria-hidden="true">
               <span></span>↓<span></span>
             </div>
-            <article class="map-card map-assets glass">
+            <article class="map-card map-assets" data-step="02">
               <div class="map-icon">
                 <svg
                   viewBox="0 0 24 24"
@@ -263,7 +270,7 @@
             <div class="map-connector" aria-hidden="true">
               <span></span>↓<span></span>
             </div>
-            <article class="map-card map-task glass">
+            <article class="map-card map-task" data-step="03">
               <div class="map-icon">
                 <svg
                   viewBox="0 0 24 24"

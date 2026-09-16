@@ -19,6 +19,7 @@ python -m http.server 4175 --bind 127.0.0.1
 - [refinement.css](refinement.css)：产品截图优先的简约布局、液态玻璃控件与面板、字号和间距优化；在基础样式后加载。
 - [site.js](site.js)：中英文和主题偏好、手机导航、截图切换、流程标签、键盘交互与视口进入动画。
 - `home-screen.png`、`login-screen.png`：真实产品截图；`og.png`：分享封面。
+- `assets/stitch-background.mp4`：首屏环境光场视频，页面本地加载，不依赖运行时热链。
 - `fonts/`：本地字体资源，不依赖在线字体服务。
 - [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)：历史版本的第三方代码归属声明。
 

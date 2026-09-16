@@ -10,12 +10,6 @@
   font-weight: 500 800;
   font-display: swap;
 }
-@font-face {
-  font-family: Fragment;
-  src: url("fonts/fragment-mono-latin.woff2") format("woff2");
-  font-weight: 400;
-  font-display: swap;
-}
 :root {
   color-scheme: dark;
   --bg: #101318;
@@ -710,7 +704,7 @@ h1 em {
   color: var(--blue);
 }
 .step-number {
-  font-family: Fragment, monospace;
+  font-family: DM, "Microsoft YaHei UI", "PingFang SC", sans-serif;
   color: var(--blue);
   font-size: 10px;
 }
@@ -800,7 +794,7 @@ h1 em {
   background: var(--glass);
 }
 .arch-entry span {
-  font-family: Fragment, monospace;
+  font-family: DM, "Microsoft YaHei UI", "PingFang SC", sans-serif;
   font-size: 10px;
   color: var(--muted);
 }
@@ -828,7 +822,7 @@ h1 em {
   margin-bottom: 7px;
 }
 .arch-grid strong {
-  font-family: Fragment, monospace;
+  font-family: DM, "Microsoft YaHei UI", "PingFang SC", sans-serif;
   font-size: 13px;
   font-weight: 400;
 }
@@ -1420,7 +1414,6 @@ html[lang="en"] .hero-notes {
   width: 70%;
   left: 15%;
 }
-
 /* 浅色主题把纸面、玻璃与流程焦点分成三个明确明度层级。 */
 :root[data-theme="light"] .nav {
   border-color: rgba(70, 96, 145, 0.2);

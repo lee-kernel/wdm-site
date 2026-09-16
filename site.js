@@ -1,7 +1,6 @@
 /* 只管理展示交互，不发起业务 API 请求。 */
 const root = document.documentElement;
 const languageButton = document.querySelector("#languageToggle");
-const themeButton = document.querySelector("#themeToggle");
 const menuButton = document.querySelector("#menuToggle");
 const navLinks = document.querySelector("#navLinks");
 const productImage = document.querySelector("#productImage");
@@ -24,21 +23,10 @@ function save(key, value) {
 }
 function updateControls() {
   const english = language === "en";
-  const dark = root.dataset.theme !== "light";
   languageButton.textContent = english ? "中" : "EN";
   languageButton.setAttribute(
     "aria-label",
     english ? "切换到中文" : "Switch to English",
-  );
-  themeButton.setAttribute(
-    "aria-label",
-    english
-      ? dark
-        ? "Switch to light mode"
-        : "Switch to dark mode"
-      : dark
-        ? "切换到浅色模式"
-        : "切换到深色模式",
   );
   const expanded = menuButton.getAttribute("aria-expanded") === "true";
   menuButton.setAttribute(
@@ -71,6 +59,12 @@ function updateControls() {
     .querySelector(".screen-tabs")
     .setAttribute("aria-label", english ? "Product screenshots" : "产品截图");
   document
+    .querySelector(".console-chips")
+    .setAttribute("aria-label", english ? "Work content types" : "工作内容类型");
+  document
+    .querySelector(".console-run")
+    .setAttribute("aria-label", english ? "Open WDM workspace" : "进入 WDM 工作台");
+  document
     .querySelector(".workflow-tabs")
     .setAttribute("aria-label", english ? "Task setup flow" : "任务配置流程");
   productImage.alt = english
@@ -80,9 +74,7 @@ function updateControls() {
     : activeScreen === "home"
       ? "WDM 工作台真实界面"
       : "WDM 登录页真实界面";
-  document.querySelector('meta[name="theme-color"]').content = dark
-    ? "#101318"
-    : "#f6f7f9";
+  document.querySelector('meta[name="theme-color"]').content = "#050608";
 }
 function applyLanguage() {
   root.lang = language === "en" ? "en" : "zh-CN";
@@ -108,11 +100,6 @@ languageButton.addEventListener("click", () => {
   language = language === "zh" ? "en" : "zh";
   save("wdm-lang", language);
   applyLanguage();
-});
-themeButton.addEventListener("click", () => {
-  root.dataset.theme = root.dataset.theme === "light" ? "dark" : "light";
-  save("wdm-theme", root.dataset.theme);
-  updateControls();
 });
 function closeMenu() {
   navLinks.classList.remove("is-open");
@@ -230,5 +217,113 @@ function setupScrollReveal() {
   targets.forEach((target) => observer.observe(target));
 }
 
+/* 点阵独立于视频绘制；鼠标靠近时，点会被轻推并提高亮度。 */
+function setupInteractiveField() {
+  const field = document.querySelector(".hero-field");
+  const canvas = document.querySelector(".field-canvas");
+  if (!field || !canvas) return;
+
+  const context = canvas.getContext("2d");
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const finePointer = window.matchMedia("(pointer: fine)");
+  const cursor = { x: -1000, y: -1000, targetX: -1000, targetY: -1000 };
+  let width = 0;
+  let height = 0;
+  let frame = 0;
+  let active = false;
+
+  function draw() {
+    context.clearRect(0, 0, width, height);
+    const spacing = width < 600 ? 20 : 24;
+    const dot = "255, 255, 255";
+
+    for (let y = spacing / 2; y < height; y += spacing) {
+      for (let x = spacing / 2; x < width; x += spacing) {
+        const dx = x - cursor.x;
+        const dy = y - cursor.y;
+        const distance = Math.hypot(dx, dy) || 1;
+        const influence = active ? Math.max(0, 1 - distance / 150) : 0;
+        const push = influence * influence * 13;
+        const px = x + (dx / distance) * push;
+        const py = y + (dy / distance) * push;
+        const radius = .85 + influence * 1.45;
+        const alpha = .13 + influence * .7;
+
+        context.beginPath();
+        context.arc(px, py, radius, 0, Math.PI * 2);
+        context.fillStyle = `rgba(${dot}, ${alpha})`;
+        context.fill();
+      }
+    }
+  }
+
+  function animate() {
+    cursor.x += (cursor.targetX - cursor.x) * .2;
+    cursor.y += (cursor.targetY - cursor.y) * .2;
+    draw();
+    if (
+      Math.abs(cursor.targetX - cursor.x) > .25 ||
+      Math.abs(cursor.targetY - cursor.y) > .25
+    ) {
+      frame = requestAnimationFrame(animate);
+    } else {
+      frame = 0;
+    }
+  }
+
+  function schedule() {
+    if (!frame) frame = requestAnimationFrame(animate);
+  }
+
+  function resize() {
+    const rect = field.getBoundingClientRect();
+    const scale = Math.min(window.devicePixelRatio || 1, 2);
+    width = Math.max(1, Math.round(rect.width));
+    height = Math.max(1, Math.round(rect.height));
+    canvas.width = Math.round(width * scale);
+    canvas.height = Math.round(height * scale);
+    context.setTransform(scale, 0, 0, scale, 0, 0);
+    draw();
+  }
+
+  function handlePointer(event) {
+    if (reducedMotion.matches || !finePointer.matches) return;
+    const rect = field.getBoundingClientRect();
+    const inside =
+      event.clientX >= rect.left &&
+      event.clientX <= rect.right &&
+      event.clientY >= rect.top &&
+      event.clientY <= rect.bottom;
+    active = inside;
+    if (inside) {
+      cursor.targetX = event.clientX - rect.left;
+      cursor.targetY = event.clientY - rect.top;
+    }
+    schedule();
+  }
+
+  window.addEventListener("pointermove", handlePointer, { passive: true });
+  document.documentElement.addEventListener("pointerleave", () => {
+    active = false;
+    draw();
+  });
+  new ResizeObserver(resize).observe(field);
+  resize();
+}
+
+function setupScrollHeader() {
+  const header = document.querySelector(".nav-shell");
+  if (!header) return;
+
+  function updateHeader() {
+    header.classList.toggle("is-scrolled", window.scrollY > 12);
+  }
+
+  window.addEventListener("scroll", updateHeader, { passive: true });
+  updateHeader();
+}
+
 applyLanguage();
 setupScrollReveal();
+setupInteractiveField();
+setupScrollHeader();
