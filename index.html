@@ -17,21 +17,21 @@
       content="从工作报告、提示词与脚本，到定时任务和 Webhook。一个清晰、可控的工作入口。"
     />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="og.png" />
+    <meta property="og:image" content="assets/images/og.png" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="og.png" />
-    <link rel="icon" href="logo.png" />
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="refinement.css?v=9" />
+    <meta name="twitter:image" content="assets/images/og.png" />
+    <link rel="icon" href="assets/images/logo.png" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/refinement.css?v=13" />
     <title>WDM · 智能工作助手</title>
-    <script src="site.js?v=5" defer></script>
+    <script src="assets/js/site.js?v=5" defer></script>
   </head>
   <body id="top">
     <a data-en="Skip to content" class="skip" href="#main">跳转到主要内容</a>
     <header class="nav-shell">
       <nav class="nav glass wrap" aria-label="主导航">
         <a class="brand" href="#top" aria-label="WDM 首页"
-          ><img src="logo.png" width="32" height="32" alt="" /><b>WDM</b></a
+          ><img src="assets/images/logo.png" width="32" height="32" alt="" /><b>WDM</b></a
         >
         <div class="nav-links" id="navLinks">
           <a data-en="Features" href="#capabilities">功能</a
@@ -45,6 +45,7 @@
             aria-label="Switch to English"
           >
             EN</button
+          ><a data-en="Docs" class="nav-docs" href="docs/">文档</a
           ><a
             data-en="Open workspace"
             class="button button-small"
@@ -72,10 +73,10 @@
             <em data-en="work for tomorrow.">成为明天的积累。</em>
           </h1>
           <p
-            data-en="Capture progress. Reuse your best methods.&lt;br&gt; Bring reports, prompts, scripts, and automation into one workspace."
+            data-en="Capture today. Let your best methods keep working tomorrow."
             class="hero-description"
           >
-            记录进展，复用方法，让重复的事自动完成。<br />报告、提示词、脚本与自动任务，在一个工作台里有序协作。
+            记录今天，让好方法在明天继续发挥作用。
           </p>
           <div class="hero-actions">
             <a
@@ -83,23 +84,12 @@
               href="https://www.aiwdm.cn"
               target="_blank"
               rel="noopener noreferrer"
-              ><span data-en="Open workspace">进入工作台</span><svg class="external-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" /></svg></a
-            ><a
-              data-en="See how it works ↓"
-              class="text-link"
-              href="#capabilities"
-              >看看它如何工作 <span aria-hidden="true">↓</span></a
-            >
-          </div>
-          <div class="hero-notes">
-            <span data-en="Daily &amp; weekly reports">日报与周报</span><i></i
-            ><span data-en="Reusable assets">可复用资产</span><i></i
-            ><span data-en="Schedules &amp; events">定时与事件触发</span>
+              ><span data-en="Open workspace">进入工作台</span><svg class="external-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" /></svg></a>
           </div>
         </div>
         <div class="hero-field" aria-hidden="true">
           <video class="hero-backdrop-video" autoplay muted loop playsinline preload="metadata">
-            <source src="assets/stitch-background.mp4" type="video/mp4" />
+            <source src="assets/video/stitch-background.mp4" type="video/mp4" />
           </video>
           <canvas class="field-canvas"></canvas>
           <span class="field-vignette"></span>
@@ -167,7 +157,7 @@
           <div id="screenPanel" role="tabpanel" aria-labelledby="screen-home">
             <img
               id="productImage"
-              src="home-screen.png"
+              src="assets/images/home-screen.png"
               alt="WDM 工作台真实界面"
               width="2560"
               height="1351"
@@ -830,7 +820,7 @@
       </section>
       <section class="closing wrap">
         <div class="closing-inner glass">
-          <img src="logo.png" width="48" height="48" alt="" />
+          <img src="assets/images/logo.png" width="48" height="48" alt="" />
           <h2 data-en="Start your next task one step ahead.">
             下一次工作，从已有积累开始。
           </h2>
@@ -849,7 +839,7 @@
     </main>
     <footer class="wrap">
       <a class="brand" href="#top"
-        ><img src="logo.png" width="26" height="26" alt="" /><b>WDM</b></a
+        ><img src="assets/images/logo.png" width="26" height="26" alt="" /><b>WDM</b></a
       >
       <p data-en="Your intelligent workspace · Make work count">
         智能工作助手 · 让日常工作有积累

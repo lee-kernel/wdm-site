@@ -1,0 +1,42 @@
+:root {
+  --sl-color-accent-low: #20234d;
+  --sl-color-accent: #8a91ff;
+  --sl-color-accent-high: #dfe1ff;
+  --sl-color-white: #f7f8ff;
+  --sl-color-gray-1: #e7e9f4;
+  --sl-color-gray-2: #bcc0d2;
+  --sl-color-gray-3: #858b9f;
+  --sl-color-gray-4: #555b6c;
+  --sl-color-gray-5: #353a48;
+  --sl-color-gray-6: #232732;
+  --sl-color-black: #101318;
+  --sl-font: "DM Sans", "PingFang SC", "Microsoft YaHei UI", sans-serif;
+}
+
+:root[data-theme='light'] {
+  --sl-color-accent-low: #e8e9ff;
+  --sl-color-accent: #555ed6;
+  --sl-color-accent-high: #252b73;
+  --sl-color-white: #141722;
+  --sl-color-gray-1: #292d3a;
+  --sl-color-gray-2: #4c5262;
+  --sl-color-gray-3: #707789;
+  --sl-color-gray-4: #a6abba;
+  --sl-color-gray-5: #d8dae2;
+  --sl-color-gray-6: #eef0f5;
+  --sl-color-gray-7: #f8f9fc;
+  --sl-color-black: #ffffff;
+}
+
+.hero > img,
+.hero > .hero-html {
+  filter: drop-shadow(0 24px 64px rgb(76 86 220 / 18%));
+}
+
+.hero .actions a {
+  border-radius: 999px;
+}
+
+.card {
+  border-radius: 1rem;
+}

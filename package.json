@@ -1,0 +1,19 @@
+{
+  "name": "wdm-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.19.0"
+  },
+  "scripts": {
+    "dev": "astro dev --root docs",
+    "build": "node scripts/prepare-dist.mjs && astro build --root docs",
+    "preview:docs": "astro preview --root docs"
+  },
+  "dependencies": {
+    "@astrojs/starlight": "0.42.1",
+    "astro": "7.3.3",
+    "sharp": "0.35.4"
+  }
+}

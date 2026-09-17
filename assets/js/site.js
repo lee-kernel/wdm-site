@@ -156,7 +156,9 @@ function setupTabs(container, activate) {
 setupTabs(document.querySelector(".screen-tabs"), (tab) => {
   activeScreen = tab.dataset.screen;
   productImage.src =
-    activeScreen === "home" ? "home-screen.png" : "login-screen.png";
+    activeScreen === "home"
+      ? "assets/images/home-screen.png"
+      : "assets/images/login-screen.png";
   document
     .querySelector("#screenPanel")
     .setAttribute("aria-labelledby", tab.id);
