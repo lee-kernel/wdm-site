@@ -13,6 +13,10 @@ export default defineConfig({
     starlight({
       title: 'WDM 文档',
       description: 'WDM 智能工作助手的使用指南与功能说明。',
+      logo: {
+        src: './src/assets/logo.svg',
+        alt: 'WDM',
+      },
       locales: {
         root: {
           label: '简体中文',
@@ -24,6 +28,13 @@ export default defineConfig({
           icon: 'github',
           label: 'GitHub',
           href: 'https://github.com/lee-kernel/wdm-site',
+        },
+      ],
+      head: [
+        {
+          tag: 'script',
+          content:
+            "try { if (localStorage.getItem('wdm-docs-theme-initialized') !== '1') { if (!localStorage.getItem('starlight-theme')) localStorage.setItem('starlight-theme', 'dark'); localStorage.setItem('wdm-docs-theme-initialized', '1'); } } catch {}",
         },
       ],
       sidebar: [
