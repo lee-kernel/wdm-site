@@ -57,6 +57,7 @@ docs/src/content/docs/
 
 - `docs/astro.config.mjs`：站点标题、侧边栏、语言、部署基础路径。
 - `docs/src/styles/custom.css`：文档站视觉样式。
+- `docs/src/assets/screenshots/`：用户指南中的产品界面截图。
 - `docs/src/content.config.ts`：Starlight 内容集合。
 - `docs/public/`：文档站静态资源。
 - `index.html`：宣传站及其 `Docs` 入口。
@@ -102,6 +103,24 @@ description: 用一句话说明用户能在本页学到什么。
 ```
 
 不要硬编码 `/docs/...` 或 `/wdm-site/docs/...`。相对链接可以同时适配本地 `/docs` 和 GitHub Pages 的 `/wdm-site/docs`。
+
+## 更新界面截图
+
+截图存放在 `docs/src/assets/screenshots/`，由 Astro 在构建时生成带哈希的资源地址，因此不要把截图放到固定的 `/docs/...` 链接下。
+
+1. 使用测试账号登录实际工作台，进入与文档步骤一致的页面。
+2. 优先截取空白的新建或编辑状态，让读者看到字段和操作结构，而不是某个账号的业务数据。
+3. 截图前检查并移除邮箱、登录 IP、密码、Token、Webhook 密钥、客户数据和内部地址。
+4. 使用简短稳定的英文文件名，例如 `report-editor.png`、`automation-create.png`。
+5. 在对应指南中使用相对路径引用，并写清替代文本和一句图注：
+
+```md
+![新建日报页面，左侧填写原始记录，右侧编辑成稿](../../../assets/screenshots/report-editor.png)
+
+_先记录事实，再检查 AI 整理出的候选内容。_
+```
+
+6. 运行生产构建，并分别检查深色、浅色和窄屏布局。功能界面发生明显变化时，同步替换截图和相关操作说明。
 
 ## 写作要求
 
@@ -189,5 +208,7 @@ DOCS_BASE=/wdm-site/docs
 - [ ] 功能说明包含操作方法和必要注意事项。
 - [ ] 新页面已加入 Starlight 侧边栏。
 - [ ] 所有站内链接使用相对路径并能正常打开。
+- [ ] 截图来自当前产品界面，图注与操作步骤一致。
+- [ ] 截图不包含业务数据、账号信息或认证凭据。
 - [ ] `npm run build` 成功完成。
 - [ ] 页面未包含账号、密钥、内部地址或其他敏感信息。

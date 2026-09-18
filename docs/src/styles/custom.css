@@ -44,7 +44,6 @@
   --wdm-panel-solid: #0d1015;
   --wdm-line: rgba(220, 230, 255, 0.14);
   --wdm-shine: rgba(255, 255, 255, 0.1);
-  --wdm-dot: rgba(210, 224, 255, 0.09);
   --wdm-glow: rgba(104, 88, 238, 0.15);
 }
 
@@ -79,7 +78,6 @@
   --wdm-panel-solid: #ffffff;
   --wdm-line: rgba(36, 54, 88, 0.13);
   --wdm-shine: rgba(255, 255, 255, 0.94);
-  --wdm-dot: rgba(30, 53, 91, 0.08);
   --wdm-glow: rgba(85, 96, 215, 0.12);
 }
 
@@ -89,11 +87,12 @@ html {
 
 body {
   background-color: var(--sl-color-bg);
-  background-image:
-    radial-gradient(ellipse 50% 32% at 74% 0%, var(--wdm-glow), transparent 72%),
-    radial-gradient(circle at 1px 1px, var(--wdm-dot) 1px, transparent 1.25px);
+  background-image: radial-gradient(
+    ellipse 50% 32% at 74% 0%,
+    var(--wdm-glow),
+    transparent 72%
+  );
   background-attachment: fixed;
-  background-size: auto, 24px 24px;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -213,6 +212,16 @@ site-search dialog {
 
 .sl-markdown-content table {
   border-radius: 0.8rem;
+}
+
+.sl-markdown-content p > img:only-child {
+  display: block;
+  width: 100%;
+  margin-block: 1.5rem 0.75rem;
+  border: 1px solid var(--wdm-line);
+  border-radius: 1rem;
+  background: var(--wdm-panel-solid);
+  box-shadow: 0 1.25rem 3rem rgba(0, 0, 0, 0.2);
 }
 
 :focus-visible {
