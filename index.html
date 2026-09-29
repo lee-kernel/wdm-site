@@ -739,7 +739,7 @@
             <div class="arch-grid">
               <div>
                 <small data-en="Business data">业务数据</small
-                ><strong>MySQL</strong>
+                ><strong>PostgreSQL</strong>
               </div>
               <div>
                 <small data-en="Scheduling">任务调度</small
@@ -747,7 +747,7 @@
               </div>
               <div>
                 <small data-en="AI execution">AI 能力</small
-                ><strong>nanobot</strong>
+                ><strong>Hermes-Agent</strong>
               </div>
               <div>
                 <small data-en="Script execution">脚本执行</small
@@ -764,9 +764,9 @@
             </p>
             <h3 data-en="AI has a defined role">AI 与业务分工明确</h3>
             <p
-              data-en="WDM manages business data and results. External nanobot provides AI capabilities; a separate runner executes scripts on an internal network."
+              data-en="WDM manages business data and results. External Hermes-Agent provides AI capabilities; a separate runner executes scripts on an internal network."
             >
-              WDM 管理业务与结果，外部 nanobot 提供 AI
+              WDM 管理业务与结果，外部 Hermes-Agent 提供 AI
               能力。脚本由独立执行器在内部网络中隔离运行。
             </p>
           </div>
@@ -785,10 +785,10 @@
               ><span aria-hidden="true">+</span>
             </summary>
             <p
-              data-en="WDM connects to external nanobot for AI. Models, conversation history, tools, and the agent loop are managed there. Configure the connection in WDM settings."
+              data-en="WDM connects to external Hermes-Agent for AI. Models, conversation history, tools, and the agent loop are managed there. Configure the connection in WDM settings."
             >
-              WDM 通过外部 nanobot 调用 AI 能力。模型、会话历史、工具与 Agent
-              Loop 由 nanobot 管理，连接信息在系统配置中维护。
+              WDM 通过外部 Hermes-Agent 调用 AI 能力。模型、会话历史、工具与 Agent
+              Loop 由 Hermes-Agent 管理，连接信息在系统配置中维护。
             </p>
           </details>
           <details>
@@ -809,11 +809,11 @@
               ><span aria-hidden="true">+</span>
             </summary>
             <p
-              data-en="The project uses Docker Compose for Web, API, Worker, MySQL, and the script runner. Configure environment variables, database mounts, the external network, and Nginx certificates first. AI features also require a nanobot connection."
+              data-en="The project uses Docker Compose for Web, API, Worker, PostgreSQL, and the script runner. Configure environment variables, database mounts, the external network, and Nginx certificates first. AI features also require a Hermes-Agent connection."
             >
-              项目使用 Docker Compose 组织 Web、API、Worker、MySQL
+              项目使用 Docker Compose 组织 Web、API、Worker、PostgreSQL
               和脚本执行器。部署前需完成环境变量、数据库挂载、外部网络与 Nginx
-              证书配置；AI 功能还需连接 nanobot。
+              证书配置；AI 功能还需连接 Hermes-Agent。
             </p>
           </details>
         </div>

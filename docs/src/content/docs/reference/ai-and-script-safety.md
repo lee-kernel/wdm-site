@@ -11,6 +11,15 @@ description: 在使用 AI、脚本和自动任务时保持结果可控。
 - 提示词优化后用代表性输入重新测试。
 - Webhook 载荷和上游任务输出都按不可信材料处理。
 
+## Hermes-Agent 数据边界
+
+WDM 的 AI 能力由外部 Hermes-Agent 提供。根据你使用的功能，WDM 会发送完成当前任务所需的报告内容、提示词正文、脚本源码、自动任务说明、Webhook 材料或上游任务输出，并接收最终文本或 JSON 结果。
+
+- 不要在报告、提示词、脚本、任务说明或测试材料中加入无关密钥和敏感数据。
+- 每次 WDM 业务请求使用独立上下文；不要假设 Hermes-Agent 会记住上一次操作的内容。
+- 模型、Provider、会话历史、记忆、Skill、Tool 和 Agent Loop 由 Hermes-Agent 管理，WDM 不在本地重复实现这些能力。
+- Hermes-Agent 的访问密钥由管理员在受权限保护的系统配置中维护，查询配置时不会回显密钥明文。
+
 ## 脚本执行边界
 
 Python、JavaScript 和 Shell 通过隔离执行服务运行，并受到请求大小、源码、输入、输出、时间、内存和进程数量限制。PowerShell、SQL 和其他语言只能保存与查看。
