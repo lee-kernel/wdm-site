@@ -14,7 +14,7 @@
 
 ## 事实来源
 
-WDM 主项目位于 `E:\DevCode\wdm`，工程文档位于 `E:\DevCode\wdm\docs`。在常规相邻目录结构中，对应路径为 `../wdm/docs`。
+WDM 主项目位于相邻目录 `../wdm`，权威工程文档为 `../wdm/docs`。当前 Windows 工作区对应 `F:\Dev\Workspace\wdm\docs`。
 
 更新用户文档前，按功能读取相关事实来源：
 
@@ -22,6 +22,9 @@ WDM 主项目位于 `E:\DevCode\wdm`，工程文档位于 `E:\DevCode\wdm\docs`�
 | --- | --- |
 | 工作报告 | `wdm/docs/domains/work-report.md` |
 | 提示词库、脚本库 | `wdm/docs/domains/ai-assets.md` |
+| 避坑智库 | `wdm/docs/domains/pitfall-library.md` |
+| 分享码与导入 | `wdm/docs/domains/asset-sharing.md` |
+| 数据备份与还原 | `wdm/docs/domains/private-backup.md` |
 | 标签 | `wdm/docs/domains/tags.md` |
 | 自动任务 | `wdm/docs/domains/automation.md` |
 | 通知渠道 | `wdm/docs/domains/channels.md` |
@@ -44,10 +47,13 @@ docs/src/content/docs/
 │   ├── reports.md
 │   ├── prompts.md
 │   ├── scripts.md
+│   ├── pitfalls.md
+│   ├── sharing.md
 │   ├── tags.md
 │   ├── automation.md
 │   ├── notifications.md
-│   └── account-security.md
+│   ├── account-security.md
+│   └── backup.md
 └── reference/                # 跨功能须知与常见问题
     ├── ai-and-script-safety.md
     └── faq.md
@@ -57,6 +63,8 @@ docs/src/content/docs/
 
 - `docs/astro.config.mjs`：站点标题、侧边栏、语言、部署基础路径。
 - `docs/src/styles/custom.css`：文档站视觉样式。
+- `docs/src/components/DocsHero.astro`：文档首页首屏与按需加载的 Vanta Halo；文案和入口来自首页 frontmatter。
+- `docs/src/assets/logo.png` 与 `docs/public/favicon.png`：与宣传页统一的小熊标识。
 - `docs/src/assets/screenshots/`：用户指南中的产品界面截图。
 - `docs/src/content.config.ts`：Starlight 内容集合。
 - `docs/public/`：文档站静态资源。
@@ -64,7 +72,7 @@ docs/src/content/docs/
 
 ## 更新现有文档
 
-1. 在 `E:\DevCode\wdm\docs` 中读取相关领域、架构和安全文档。
+1. 在 `../wdm/docs` 中读取相关领域、架构和安全文档。
 2. 列出本次功能变化对用户可见的影响，包括入口、操作、限制和失败条件。
 3. 找到 `docs/src/content/docs/` 中对应页面，更新“能做什么”“如何操作”“注意事项”。
 4. 同步检查 `overview.md`、`getting-started.md` 和 `reference/faq.md` 是否需要调整。
@@ -104,6 +112,12 @@ description: 用一句话说明用户能在本页学到什么。
 
 不要硬编码 `/docs/...` 或 `/wdm-site/docs/...`。相对链接可以同时适配本地 `/docs` 和 GitHub Pages 的 `/wdm-site/docs`。
 
+## 文档站视觉维护
+
+文档站使用 Codex Desktop 参考色：深色底 `#181818`，浅色以白色与浅灰区分层次；深浅模式的交互蓝分别为 `#3a83f7`、`#0169cc`。正文、卡片、侧栏和边框保持低饱和灰阶，产品截图保留原始颜色。
+
+首页 Halo 使用锁定的 `vanta@0.5.24`、`three@0.134.0`，仅首页按需加载，本地打包，不依赖 CDN。CSS 灰度滤镜和渐隐遮罩保持银灰效果；用户可暂停。减少动态效果、后台页面、离开首屏时释放动画，WebGL 不可用时展示静态光环。许可证见 `docs/public/licenses/` 与 `THIRD_PARTY_NOTICES.md`。
+
 ## 更新界面截图
 
 截图存放在 `docs/src/assets/screenshots/`，由 Astro 在构建时生成带哈希的资源地址，因此不要把截图放到固定的 `/docs/...` 链接下。
@@ -122,13 +136,20 @@ _先记录事实，再检查 AI 整理出的候选内容。_
 
 6. 运行生产构建，并分别检查深色、浅色和窄屏布局。功能界面发生明显变化时，同步替换截图和相关操作说明。
 
+教程配图基准为 **1440×900、100% 页面缩放**，不是把窄小浏览器画面拉伸为大图。编辑页移除顶部 50px 账号栏后保存为 1440×850；弹窗与抽屉只裁切表单，避免遮罩下仍可辨认的业务信息。工作台概览后续更新为 2560×1356，邮箱与 IP 使用展示替换值；尺寸与脱敏方式以截图清单为准。
+
+折叠菜单有时会把子菜单 SVG 裁到左边缘，采集整页时应展开侧栏，并等待布局稳定后逐张检查。原图说明见 [截图清单](docs/screenshots.md)。文档截图由 `docs/public/screenshots.js` 提供放大、适应窗口和原始尺寸查看，支持 Escape 关闭与键盘焦点恢复。宣传页复用的图片位于 `assets/images/`，替换时同步更新两处。
+
 ## 写作要求
 
 - 只描述主项目文档或已验证实现中存在的能力。
 - 先说明用户目标，再给操作步骤，最后写限制和风险。
 - 不把 AI 输出描述为已经审核的事实。
 - 不把私有资产描述为默认团队共享。
-- 明确区分私有脚本、公共脚本和管理员发布权限。
+- 提示词与脚本均为本人私有资产；跨账号传递使用分享码，不再描述公共脚本发布。
+- 提示词只使用文本正文、变量和默认值，不再描述结构化编辑模式。
+- 分享码传递生成时的固定快照，不开放原资产，也不复制对方个人标签。
+- 备份导入与覆盖还原必须分清；还原后任务暂停，Webhook 接入信息需更新。
 - 自动任务相关页面应说明触发方式、最新配置读取规则和执行日志。
 - 安全内容应给出可执行建议，不公开密钥、内部地址或敏感配置值。
 - 不添加虚构数据、客户评价、性能指标或尚未实现的功能。
@@ -203,7 +224,7 @@ DOCS_BASE=/wdm-site/docs
 
 ## 提交前检查清单
 
-- [ ] 内容事实已从 `E:\DevCode\wdm\docs` 核对。
+- [ ] 内容事实已从 `../wdm/docs` 核对。
 - [ ] 工程语言已改写为用户语言，没有直接照搬内部文档。
 - [ ] 功能说明包含操作方法和必要注意事项。
 - [ ] 新页面已加入 Starlight 侧边栏。

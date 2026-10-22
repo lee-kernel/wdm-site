@@ -1,0 +1,98 @@
+---
+const { title, tagline, actions = [] } = Astro.locals.starlightRoute.entry.data.hero!;
+---
+
+<section class="docs-hero" aria-labelledby="_top">
+  <div class="docs-hero-copy">
+    <p class="docs-kicker"><span></span> WDM / 使用手册</p>
+    <h1 id="_top" data-page-title set:html={title} />
+    <p class="docs-hero-description" set:html={tagline} />
+    <div class="docs-hero-actions">
+      {actions.map((action, index) => <a class={index === 0 ? 'docs-primary' : 'docs-secondary'} href={action.link}>{action.text} <span aria-hidden="true">{index === 0 ? '↗' : '→'}</span></a>)}
+    </div>
+    <div class="docs-hero-topics"><span>记录</span><span>复用</span><span>自动执行</span></div>
+  </div>
+  <div class="docs-hero-art">
+    <div class="halo-visual" aria-hidden="true"><div class="halo-canvas" id="docs-halo"></div></div>
+    <div class="halo-caption"><span>让积累，持续发生。</span><button class="halo-toggle" type="button" aria-pressed="false" hidden>暂停动效</button></div>
+  </div>
+</section>
+
+<script>
+  const host = document.querySelector<HTMLElement>('#docs-halo');
+  const toggle = document.querySelector<HTMLButtonElement>('.halo-toggle');
+  if (host && toggle) {
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    type HaloEffect = {
+      destroy: () => void;
+      bufferTarget?: { dispose: () => void };
+      bufferFeedback?: { dispose: () => void };
+      renderer?: { dispose: () => void; forceContextLoss: () => void };
+    };
+    let effect: HaloEffect | undefined;
+    let modules: Promise<any> | undefined;
+    let paused = false;
+    let visible = false;
+    let generation = 0;
+    let failed = false;
+
+    function destroy() {
+      generation++;
+      const renderer = effect?.renderer;
+      effect?.bufferTarget?.dispose();
+      effect?.bufferFeedback?.dispose();
+      effect?.destroy();
+      renderer?.dispose();
+      renderer?.forceContextLoss();
+      effect = undefined;
+      host!.classList.remove('halo-ready');
+    }
+
+    async function start() {
+      if (effect || paused || !visible || failed || reducedMotion.matches || document.hidden) return;
+      const request = ++generation;
+      try {
+        modules ||= Promise.all([import('three'), import('vanta/dist/vanta.halo.min.js')]);
+        const [THREE, halo] = await modules;
+        if (request !== generation || paused || !visible || reducedMotion.matches || document.hidden) return;
+        // Vanta's published UMD bundle wraps its factory in a default export.
+        const createHalo = halo.default.default || halo.default;
+        effect = createHalo({
+          el: host, THREE, backgroundColor: 0x000000, baseColor: 0x111111,
+          amplitudeFactor: 0.7, size: 1.7, speed: 0.45,
+          mouseControls: true, touchControls: false, gyroControls: false,
+          minHeight: 200, minWidth: 200, scale: 1.5, scaleMobile: 2,
+        });
+        if (!host!.querySelector('canvas')) throw new Error('Halo unavailable');
+        host!.classList.add('halo-ready');
+        toggle!.hidden = false;
+      } catch (error) {
+        console.warn('[WDM docs] Halo unavailable; showing the static background.', error);
+        failed = true;
+        destroy();
+        toggle!.hidden = true;
+      }
+    }
+
+    function update() {
+      if (paused || !visible || reducedMotion.matches || document.hidden) destroy();
+      else void start();
+    }
+    const observer = new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; update(); }, { threshold: 0.05 });
+    observer.observe(host);
+    toggle.addEventListener('click', () => {
+      paused = !paused;
+      toggle.setAttribute('aria-pressed', String(paused));
+      toggle.textContent = paused ? '播放动效' : '暂停动效';
+      update();
+    });
+    reducedMotion.addEventListener('change', update);
+    document.addEventListener('visibilitychange', update);
+    window.addEventListener('pagehide', () => {
+      observer.disconnect();
+      reducedMotion.removeEventListener('change', update);
+      document.removeEventListener('visibilitychange', update);
+      destroy();
+    }, { once: true });
+  }
+</script>

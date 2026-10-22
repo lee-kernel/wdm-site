@@ -14,9 +14,11 @@ export default defineConfig({
       title: 'WDM 文档',
       description: 'WDM 智能工作助手的使用指南与功能说明。',
       logo: {
-        src: './src/assets/logo.svg',
+        src: './src/assets/logo.png',
         alt: 'WDM',
       },
+      components: { Hero: './src/components/DocsHero.astro' },
+      favicon: '/favicon.png',
       locales: {
         root: {
           label: '简体中文',
@@ -31,6 +33,7 @@ export default defineConfig({
         },
       ],
       head: [
+        { tag: 'script', attrs: { src: `${base.replace(/\/$/, '')}/screenshots.js`, defer: true } },
         {
           tag: 'script',
           content:
@@ -52,10 +55,13 @@ export default defineConfig({
             'guides/reports',
             'guides/prompts',
             'guides/scripts',
+            'guides/pitfalls',
+            'guides/sharing',
             'guides/tags',
             'guides/automation',
             'guides/notifications',
             'guides/account-security',
+            'guides/backup',
           ],
         },
         {

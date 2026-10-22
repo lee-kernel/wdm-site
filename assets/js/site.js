@@ -4,6 +4,12 @@ const languageButton = document.querySelector("#languageToggle");
 const menuButton = document.querySelector("#menuToggle");
 const navLinks = document.querySelector("#navLinks");
 const productImage = document.querySelector("#productImage");
+const screens = {
+  home: { src: "assets/images/home-screen.png", width: 2560, height: 1356, zh: "WDM 工作台，邮箱与 IP 为展示替换值", en: "WDM workspace with display-only email and IP values" },
+  reports: { src: "assets/images/report-editor.png", width: 1440, height: 850, zh: "WDM 空白日报编辑器", en: "WDM blank daily report editor" },
+  prompts: { src: "assets/images/prompt-editor.png", width: 1440, height: 850, zh: "WDM 文本提示词与变量编辑器", en: "WDM text prompt and variable editor" },
+  login: { src: "assets/images/login-screen.png", width: 1440, height: 900, zh: "WDM 空白登录页", en: "WDM blank sign-in page" },
+};
 const translations = [...document.querySelectorAll("[data-en]")].map(
   (node) => ({ node, zh: node.innerHTML, en: node.dataset.en }),
 );
@@ -67,13 +73,10 @@ function updateControls() {
   document
     .querySelector(".workflow-tabs")
     .setAttribute("aria-label", english ? "Task setup flow" : "任务配置流程");
-  productImage.alt = english
-    ? activeScreen === "home"
-      ? "Actual WDM workspace interface"
-      : "Actual WDM sign-in interface"
-    : activeScreen === "home"
-      ? "WDM 工作台真实界面"
-      : "WDM 登录页真实界面";
+  productImage.alt = screens[activeScreen][english ? "en" : "zh"];
+  productImage.width = screens[activeScreen].width;
+  productImage.height = screens[activeScreen].height;
+  document.querySelector('#screenPanel').style.aspectRatio = `${productImage.width} / ${productImage.height}`;
   document.querySelector('meta[name="theme-color"]').content = "#050608";
 }
 function applyLanguage() {
@@ -155,10 +158,7 @@ function setupTabs(container, activate) {
 }
 setupTabs(document.querySelector(".screen-tabs"), (tab) => {
   activeScreen = tab.dataset.screen;
-  productImage.src =
-    activeScreen === "home"
-      ? "assets/images/home-screen.png"
-      : "assets/images/login-screen.png";
+  productImage.src = screens[activeScreen].src;
   document
     .querySelector("#screenPanel")
     .setAttribute("aria-labelledby", tab.id);

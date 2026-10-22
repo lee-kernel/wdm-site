@@ -1,5 +1,13 @@
 # Third-party notices
 
+## Documentation Halo background
+
+The documentation homepage uses [Vanta.js Halo](https://github.com/tengbao/vanta) 0.5.24
+and [Three.js](https://github.com/mrdoob/three.js) 0.134.0, bundled locally from pinned npm dependencies.
+Both use the MIT license. Full notices are retained in
+`docs/public/licenses/vanta.txt` and `docs/public/licenses/three.txt` and copied into the published docs.
+The original Halo shader is displayed through a grayscale CSS filter to fit the soft monochrome theme.
+
 An earlier version of this site included a liquid-refraction header effect adapted from
 [`shuding/liquid-glass`](https://github.com/shuding/liquid-glass).
 

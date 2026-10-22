@@ -3,34 +3,48 @@ title: WDM 使用文档
 description: 了解 WDM 能做什么，并从记录工作逐步建立可复用、可自动执行的工作流。
 template: splash
 hero:
-  tagline: 从记录工作，到沉淀方法，再到自动执行。
+  title: 每一步，<br />都有方法。
+  tagline: 从第一篇日报，到下一项自动任务。<br />找到入口，理解规则，完成你的工作。
   actions:
-    - text: 快速开始
+    - text: 开始使用
       link: ./getting-started/
       icon: right-arrow
       variant: primary
-    - text: 查看功能
+    - text: 浏览功能
       link: ./overview/
       icon: open-book
+lastUpdated: 2026-10-22
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+import { CardGrid, LinkCard } from '@astrojs/starlight/components';
 
-## WDM 可以帮你完成什么
+<div class="docs-section-label"><span>01 / 从这里开始</span><span>按目标找到下一步</span></div>
+
+## 今天，先完成一件事
 
 <CardGrid>
-  <Card title="写日报与周报" icon="document">
-    记录每天的工作进展，并从已经保存的日报生成周报。Hermes-Agent 可以辅助整理，但保存前始终由你确认。
-  </Card>
-  <Card title="管理提示词与脚本" icon="puzzle">
-    保存已经验证有效的方法，通过分类和标签快速找到、复用或继续优化。
-  </Card>
-  <Card title="自动执行重复工作" icon="setting">
-    按时间计划或 Webhook 事件运行由 Hermes-Agent 处理的 AI 任务与隔离脚本，并查看每一次执行结果。
-  </Card>
-  <Card title="把结果发送给自己" icon="email">
-    通过邮件或 Bark 接收任务结果。渠道配置保持独立，更新后会在下次任务执行时生效。
-  </Card>
+  <LinkCard title="第一次使用" description="登录、保存第一篇日报，再尝试方法复用。" href="./getting-started/" />
+  <LinkCard title="配置一次自动任务" description="选择 AI 或脚本、触发计划和通知渠道，检查执行结果。" href="./guides/automation/" />
+  <LinkCard title="接收分享的内容" description="预览分享码快照，保存成自己的提示词、脚本或经验。" href="./guides/sharing/" />
+  <LinkCard title="备份与恢复数据" description="了解备份范围、文件导入与覆盖还原。" href="./guides/backup/" />
 </CardGrid>
 
-WDM 适合将“经常做、过程稳定、结果可检查”的工作逐步沉淀下来。第一次使用时，建议从[写一篇日报](./guides/reports/)开始。
+<div class="docs-section-label"><span>02 / 使用指南</span><span>从记录，到执行</span></div>
+
+## 让方法进入日常
+
+<div class="docs-paths">
+  <section><span class="docs-path-number">01</span><h3>记录与复盘</h3><p>记下事实，留下已经验证的方法。</p><a href="./guides/reports/">写日报与汇总周报 <span>↗</span></a><a href="./guides/pitfalls/">保存一条避坑经验 <span>↗</span></a><a href="./guides/tags/">用标签整理内容 <span>↗</span></a></section>
+  <section><span class="docs-path-number">02</span><h3>沉淀与复用</h3><p>把反复使用的指令和代码收好。</p><a href="./guides/prompts/">创建带变量的提示词 <span>↗</span></a><a href="./guides/scripts/">保存与测试脚本 <span>↗</span></a><a href="./guides/sharing/">分享与导入内容副本 <span>↗</span></a></section>
+  <section><span class="docs-path-number">03</span><h3>执行与检查</h3><p>按计划运行，把结果送到手边。</p><a href="./guides/automation/">配置自动任务 <span>↗</span></a><a href="./guides/notifications/">接收邮件或 Bark 通知 <span>↗</span></a><a href="./guides/backup/">备份与恢复本人数据 <span>↗</span></a></section>
+</div>
+
+<div class="docs-section-label"><span>03 / 产品界面</span><span>熟悉你的工作入口</span></div>
+
+## 先认识工作台
+
+![WDM 工作台，邮箱和 IP 使用展示替换值](../../assets/screenshots/workspace-overview.png)
+
+_工作台概览图为 2560×1356；教程图按 1440×900 桌面视口采集，表单仅做局部裁切。点击可放大查看，界面状态仅代表采集当时。_
+
+<div class="docs-help"><div><h3>遇到问题，先从这里查。</h3><p>了解 AI 候选、私有资产、分享与覆盖还原的边界。</p></div><a href="./reference/faq/">常见问题 ↗</a><a href="./reference/ai-and-script-safety/">安全须知 ↗</a></div>
