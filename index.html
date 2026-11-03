@@ -6,15 +6,15 @@
     <meta name="theme-color" content="#101318" />
     <meta
       name="description"
-      content="WDM 智能工作助手：记录日报与周报，沉淀提示词和脚本，以定时任务与 Webhook 自动执行，让日常工作有积累。"
+      content="WDM 数字专家中枢：沉淀领域知识，连接数字专家。通过专家名片与 MCP 授权，让 Agent 访问你的经验与工具资产。"
     />
     <meta
       property="og:title"
-      content="让每一次工作，都成为下一次的积累。｜WDM"
+      content="WDM 数字专家中枢｜沉淀领域知识，连接数字专家"
     />
     <meta
       property="og:description"
-      content="从工作报告、提示词与脚本，到定时任务和 Webhook。一个清晰、可控的工作入口。"
+      content="在工作台沉淀经验与方法，通过专家名片和 MCP 授权连接 Agent。"
     />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="assets/images/og.png" />
@@ -23,8 +23,8 @@
     <link rel="icon" href="assets/images/logo.png" />
     <link rel="stylesheet" href="assets/css/styles.css" />
     <link rel="stylesheet" href="assets/css/refinement.css?v=14" />
-    <title>WDM · 智能工作助手</title>
-    <script src="assets/js/site.js?v=6" defer></script>
+    <title>WDM · 数字专家中枢</title>
+    <script src="assets/js/site.js?v=7" defer></script>
   </head>
   <body id="top">
     <a data-en="Skip to content" class="skip" href="#main">跳转到主要内容</a>
@@ -34,7 +34,8 @@
           ><img src="assets/images/logo.png" width="32" height="32" alt="" /><b>WDM</b></a
         >
         <div class="nav-links" id="navLinks">
-          <a data-en="Features" href="#capabilities">功能</a
+          <a data-en="Experts" href="#experts">专家接入</a
+          ><a data-en="Features" href="#capabilities">功能</a
           ><a data-en="Product" href="#experience">产品界面</a
           ><a data-en="Guides" href="#handbook">使用指南</a>
         </div>
@@ -69,14 +70,14 @@
       <section class="hero wrap">
         <div class="hero-copy">
           <h1>
-            <span data-en="Make today’s work">让今天的工作，</span><br />
-            <em data-en="work for tomorrow.">成为明天的积累。</em>
+            <span data-en="Build domain knowledge.">沉淀领域知识，</span><br />
+            <em data-en="Connect digital experts.">连接数字专家。</em>
           </h1>
           <p
-            data-en="Capture today. Let your best methods keep working tomorrow."
+            data-en="WDM is the Digital Expert Hub. Shape an expert profile, preserve your expertise, and connect agents through MCP."
             class="hero-description"
           >
-            记录今天，让好方法在明天继续发挥作用。
+            WDM 数字专家中枢，让领域经验与工作方法在工作台沉淀，通过 MCP 授权连接 Agent。
           </p>
           <div class="hero-actions">
             <a
@@ -131,7 +132,7 @@
             <div class="window-dots" aria-hidden="true">
               <i></i><i></i><i></i>
             </div>
-            <span>WDM / <span data-en="Workspace">智能工作助手</span></span>
+            <span>WDM / <span data-en="Digital Expert Hub">数字专家中枢</span></span>
             <div class="screen-tabs" role="tablist" aria-label="产品截图">
               <button
                 class="screen-tab"
@@ -305,14 +306,41 @@
           </div>
         </div>
       </section>
+      <section id="experts" class="section wrap">
+        <div class="section-intro">
+          <div>
+            <p class="eyebrow" data-en="Expert profiles / MCP access">专家名片 / MCP 接入</p>
+            <h2 data-en="Bring your expertise to your agent.">让 Agent 连接你的专业积累。</h2>
+          </div>
+          <p class="intro-aside" data-en="One account, one expert profile.&lt;br&gt;Access stays under your control.">一个账号，一张专家名片。<br />按需授权，清晰掌控。</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature glass">
+            <span class="feature-name" data-en="01 / Define your expertise">01 / 定义专家</span>
+            <h3 data-en="Give your expertise a clear identity.">让专业领域有清晰的身份。</h3>
+            <p data-en="Describe your domain, the questions you handle, and your working guidance in your account’s expert profile.">在账号的专家名片中填写领域、擅长问题与工作说明，帮助 Agent 理解专家定位。</p>
+          </article>
+          <article class="feature glass">
+            <span class="feature-name" data-en="02 / Connect through MCP">02 / 通过 MCP 连接</span>
+            <h3 data-en="Grant access to the right capabilities.">把需要的能力授权给 Agent。</h3>
+            <p data-en="Create an MCP authorization for a trusted client. Grant access to your profile and, when needed, your lessons, prompts, or scripts.">为可信客户端创建 MCP 授权，按需开放专家名片、避坑经验、提示词或脚本等能力。</p>
+          </article>
+          <article class="feature glass">
+            <span class="feature-name" data-en="03 / Continue building">03 / 持续建设</span>
+            <h3 data-en="Grow toward a hub of experts.">向多领域专家中枢演进。</h3>
+            <p data-en="Independent knowledge search and automatic routing across experts are future directions. Client support for multiple connections should be verified in practice.">独立知识检索与多专家自动选择仍在规划中；多连接能力需在实际客户端验证。</p>
+            <a class="guide-link" href="docs/guides/expert-mcp/" data-en="Read the MCP guide →">了解专家与 MCP 接入 →</a>
+          </article>
+        </div>
+      </section>
       <section id="capabilities" class="section wrap">
         <div class="section-intro">
           <div>
-            <p data-en="Capture. Reuse. Execute." class="eyebrow">
-              从记录、复用，到执行
+            <p data-en="Preserve expertise. Connect agents." class="eyebrow">
+              沉淀经验，连接 Agent
             </p>
-            <h2 data-en="Connect the pieces of your work.">
-              把日常工作，连成一条线。
+            <h2 data-en="Put your expertise to work.">
+              让专业积累，持续发挥作用。
             </h2>
           </div>
           <p
@@ -868,8 +896,8 @@
       <a class="brand" href="#top"
         ><img src="assets/images/logo.png" width="26" height="26" alt="" /><b>WDM</b></a
       >
-      <p data-en="Your intelligent workspace · Make work count">
-        智能工作助手 · 让日常工作有积累
+      <p data-en="The Digital Expert Hub · Build domain knowledge. Connect digital experts.">
+        数字专家中枢 · 沉淀领域知识，连接数字专家
       </p>
       <a href="https://www.aiwdm.cn" target="_blank" rel="noopener noreferrer"
         >aiwdm.cn <svg class="external-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" /></svg></a

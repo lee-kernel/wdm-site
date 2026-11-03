@@ -87,12 +87,12 @@ function applyLanguage() {
   });
   document.title =
     language === "en"
-      ? "WDM · Your intelligent workspace"
-      : "WDM · 智能工作助手";
+      ? "WDM · The Digital Expert Hub"
+      : "WDM · 数字专家中枢";
   const description =
     language === "en"
-      ? "Capture daily and weekly reports, reuse prompts and scripts, and run scheduled or Webhook-triggered tasks in one workspace."
-      : "WDM 智能工作助手：记录日报与周报，沉淀提示词和脚本，以定时任务与 Webhook 自动执行，让日常工作有积累。";
+      ? "Build domain knowledge and connect digital experts. Manage expert profiles and grant agents MCP access to your experience and assets."
+      : "WDM 数字专家中枢：沉淀领域知识，连接数字专家。通过专家名片与 MCP 授权，让 Agent 访问你的经验与工具资产。";
   document.querySelector('meta[name="description"]').content = description;
   document.querySelector('meta[property="og:title"]').content = document.title;
   document.querySelector('meta[property="og:description"]').content =

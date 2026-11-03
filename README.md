@@ -29,6 +29,7 @@ WDM 主项目位于相邻目录 `../wdm`，权威工程文档为 `../wdm/docs`�
 | 自动任务 | `wdm/docs/domains/automation.md` |
 | 通知渠道 | `wdm/docs/domains/channels.md` |
 | 账号、登录与权限 | `wdm/docs/domains/identity-access.md`、`wdm/docs/standards/security.md` |
+| 专家名片与 MCP 接入 | `wdm/docs/domains/identity-access.md` 的专家名片与 MCP 授权章节 |
 | AI 与脚本安全 | `wdm/docs/architecture/ai-layer.md`、`wdm/docs/standards/security.md` |
 | 系统整体能力 | `wdm/docs/architecture/overview.md` 与上述领域文档 |
 
@@ -53,6 +54,7 @@ docs/src/content/docs/
 │   ├── automation.md
 │   ├── notifications.md
 │   ├── account-security.md
+│   ├── expert-mcp.md
 │   └── backup.md
 └── reference/                # 跨功能须知与常见问题
     ├── ai-and-script-safety.md

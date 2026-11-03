@@ -12,7 +12,7 @@ export default defineConfig({
   integrations: [
     starlight({
       title: 'WDM 文档',
-      description: 'WDM 智能工作助手的使用指南与功能说明。',
+      description: 'WDM 数字专家中枢的使用指南与功能说明。',
       logo: {
         src: './src/assets/logo.png',
         alt: 'WDM',
@@ -61,6 +61,7 @@ export default defineConfig({
             'guides/automation',
             'guides/notifications',
             'guides/account-security',
+            'guides/expert-mcp',
             'guides/backup',
           ],
         },
