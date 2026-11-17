@@ -11,11 +11,11 @@ export default defineConfig({
   trailingSlash: 'always',
   integrations: [
     starlight({
-      title: 'WDM 文档',
-      description: 'WDM 数字专家中枢的使用指南与功能说明。',
+      title: 'Mori 文档',
+      description: 'Mori 共享工作空间的使用指南与功能说明。',
       logo: {
         src: './src/assets/logo.png',
-        alt: 'WDM',
+        alt: 'Mori',
       },
       components: { Hero: './src/components/DocsHero.astro' },
       favicon: '/favicon.png',
@@ -56,6 +56,7 @@ export default defineConfig({
             'guides/prompts',
             'guides/scripts',
             'guides/pitfalls',
+            'guides/knowledge',
             'guides/sharing',
             'guides/tags',
             'guides/automation',

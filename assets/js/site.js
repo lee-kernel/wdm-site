@@ -5,10 +5,11 @@ const menuButton = document.querySelector("#menuToggle");
 const navLinks = document.querySelector("#navLinks");
 const productImage = document.querySelector("#productImage");
 const screens = {
-  home: { src: "assets/images/home-screen.png", width: 2560, height: 1356, zh: "WDM 工作台，邮箱与 IP 为展示替换值", en: "WDM workspace with display-only email and IP values" },
-  reports: { src: "assets/images/report-editor.png", width: 1440, height: 850, zh: "WDM 空白日报编辑器", en: "WDM blank daily report editor" },
-  prompts: { src: "assets/images/prompt-editor.png", width: 1440, height: 850, zh: "WDM 文本提示词与变量编辑器", en: "WDM text prompt and variable editor" },
-  login: { src: "assets/images/login-screen.png", width: 1440, height: 900, zh: "WDM 空白登录页", en: "WDM blank sign-in page" },
+  home: { src: "assets/images/home-screen_light.png", width: 2560, height: 1360, zh: "Mori 浅色工作台界面", en: "Mori light workspace" },
+  dark: { src: "assets/images/home-screen_dark.png", width: 2560, height: 1360, zh: "Mori 深色工作台界面", en: "Mori dark workspace" },
+  reports: { src: "assets/images/report-editor.png", width: 1440, height: 850, zh: "Mori 空白日报编辑器", en: "Mori blank daily report editor" },
+  prompts: { src: "assets/images/prompt-editor.png", width: 1440, height: 850, zh: "Mori 文本提示词与变量编辑器", en: "Mori text prompt and variable editor" },
+  login: { src: "assets/images/login-screen.png", width: 2560, height: 1360, zh: "Mori 工作台登录页截图", en: "Mori workspace sign-in screenshot" },
 };
 const translations = [...document.querySelectorAll("[data-en]")].map(
   (node) => ({ node, zh: node.innerHTML, en: node.dataset.en }),
@@ -50,7 +51,7 @@ function updateControls() {
     .setAttribute("aria-label", english ? "Main navigation" : "主导航");
   document
     .querySelector(".brand")
-    .setAttribute("aria-label", english ? "WDM home" : "WDM 首页");
+    .setAttribute("aria-label", english ? "Mori home" : "Mori 首页");
   document
     .querySelector(".work-map")
     .setAttribute(
@@ -69,7 +70,7 @@ function updateControls() {
     .setAttribute("aria-label", english ? "Work content types" : "工作内容类型");
   document
     .querySelector(".console-run")
-    .setAttribute("aria-label", english ? "Open WDM workspace" : "进入 WDM 工作台");
+    .setAttribute("aria-label", english ? "Open Mori workspace" : "进入 Mori 工作台");
   document
     .querySelector(".workflow-tabs")
     .setAttribute("aria-label", english ? "Task setup flow" : "任务配置流程");
@@ -87,12 +88,12 @@ function applyLanguage() {
   });
   document.title =
     language === "en"
-      ? "WDM · The Digital Expert Hub"
-      : "WDM · 数字专家中枢";
+      ? "Mori · The Shared Workspace for Humans and AI"
+      : "Mori · 人与 AI 共享的工作空间";
   const description =
     language === "en"
-      ? "Build domain knowledge and connect digital experts. Manage expert profiles and grant agents MCP access to your experience and assets."
-      : "WDM 数字专家中枢：沉淀领域知识，连接数字专家。通过专家名片与 MCP 授权，让 Agent 访问你的经验与工具资产。";
+      ? "Bring knowledge, experience, preferences, and standards into one workspace. Share the right context and tools with agents through MCP."
+      : "Mori 汇聚知识、经验、偏好与标准，通过工作空间配置和 MCP 授权与 Agent 协作。";
   document.querySelector('meta[name="description"]').content = description;
   document.querySelector('meta[property="og:title"]').content = document.title;
   document.querySelector('meta[property="og:description"]').content =

@@ -1,10 +1,10 @@
 ---
-title: WDM 使用文档
-description: 了解 WDM 数字专家中枢，沉淀领域经验并通过 MCP 连接 Agent。
+title: Mori 使用文档
+description: 了解 Mori 共享工作空间，沉淀知识并按需授权 Agent。
 template: splash
 hero:
-  title: 沉淀领域知识，<br />连接数字专家。
-  tagline: WDM 数字专家中枢。<br />在工作台积累经验，通过 MCP 与 Agent 连接。
+  title: 共享工作空间，<br />连接人与 AI。
+  tagline: Mori — The Shared Workspace for Humans and AI。<br />积累知识与方法，按需授权 Agent 使用。
   actions:
     - text: 开始使用
       link: ./getting-started/
@@ -23,9 +23,9 @@ import { CardGrid, LinkCard } from '@astrojs/starlight/components';
 ## 今天，先完成一件事
 
 <CardGrid>
-  <LinkCard title="连接专家与 Agent" description="维护专家名片，创建 MCP 授权，并验证连接。" href="./guides/expert-mcp/" />
+  <LinkCard title="连接工作空间与 Agent" description="编写空间配置，创建 MCP 授权，并验证连接。" href="./guides/expert-mcp/" />
   <LinkCard title="配置一次自动任务" description="选择 AI 或脚本、触发计划和通知渠道，检查执行结果。" href="./guides/automation/" />
-  <LinkCard title="接收分享的内容" description="预览分享码快照，保存成自己的提示词、脚本或经验。" href="./guides/sharing/" />
+  <LinkCard title="整理知识档案" description="编写 Markdown 文章，发布后按授权供 Agent 查询。" href="./guides/knowledge/" />
   <LinkCard title="备份与恢复数据" description="了解备份范围、文件导入与覆盖还原。" href="./guides/backup/" />
 </CardGrid>
 
@@ -34,7 +34,7 @@ import { CardGrid, LinkCard } from '@astrojs/starlight/components';
 ## 让方法进入日常
 
 <div class="docs-paths">
-  <section><span class="docs-path-number">01</span><h3>记录与复盘</h3><p>记下事实，留下已经验证的方法。</p><a href="./guides/reports/">写日报与汇总周报 <span>↗</span></a><a href="./guides/pitfalls/">保存一条避坑经验 <span>↗</span></a><a href="./guides/tags/">用标签整理内容 <span>↗</span></a></section>
+  <section><span class="docs-path-number">01</span><h3>记录与复盘</h3><p>记下事实，留下已经验证的方法。</p><a href="./guides/reports/">写日报与汇总周报 <span>↗</span></a><a href="./guides/pitfalls/">保存一条避坑经验 <span>↗</span></a><a href="./guides/knowledge/">整理知识档案 <span>↗</span></a></section>
   <section><span class="docs-path-number">02</span><h3>沉淀与复用</h3><p>把反复使用的指令和代码收好。</p><a href="./guides/prompts/">创建带变量的提示词 <span>↗</span></a><a href="./guides/scripts/">保存与测试脚本 <span>↗</span></a><a href="./guides/sharing/">分享与导入内容副本 <span>↗</span></a></section>
   <section><span class="docs-path-number">03</span><h3>执行与检查</h3><p>按计划运行，把结果送到手边。</p><a href="./guides/automation/">配置自动任务 <span>↗</span></a><a href="./guides/notifications/">接收邮件或 Bark 通知 <span>↗</span></a><a href="./guides/backup/">备份与恢复本人数据 <span>↗</span></a></section>
 </div>
@@ -43,8 +43,8 @@ import { CardGrid, LinkCard } from '@astrojs/starlight/components';
 
 ## 先认识工作台
 
-![WDM 工作台，邮箱和 IP 使用展示替换值](../../assets/screenshots/workspace-overview.png)
+![Mori 工作台，邮箱和 IP 使用展示替换值](../../assets/screenshots/workspace-overview.png)
 
-_工作台概览图为 2560×1356；教程图按 1440×900 桌面视口采集，表单仅做局部裁切。点击可放大查看，界面状态仅代表采集当时。_
+_工作台概览图为 2560×1360；截图中的实例仍显示旧品牌名称。点击可放大查看，界面状态仅代表采集当时。_
 
 <div class="docs-help"><div><h3>遇到问题，先从这里查。</h3><p>了解 AI 候选、私有资产、分享与覆盖还原的边界。</p></div><a href="./reference/faq/">常见问题 ↗</a><a href="./reference/ai-and-script-safety/">安全须知 ↗</a></div>

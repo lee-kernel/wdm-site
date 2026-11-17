@@ -1,10 +1,10 @@
-# WDM 用户文档维护指南
+# Mori 宣传站与用户文档维护指南
 
-本仓库同时发布 WDM 宣传站和 Starlight 用户文档：宣传站位于 `/`，文档站位于 `/docs/`。本文主要说明如何根据 WDM 主项目更新用户文档。
+本仓库同时发布 Mori 宣传站和 Starlight 用户文档：宣传站位于 `/`，文档站位于 `/docs/`。内部工程标识和相邻主项目目录仍为 WDM。本文说明如何根据主项目更新用户文档。
 
 ## 文档定位
 
-这里维护的是面向 WDM 使用者的产品手册，重点回答三个问题：
+这里维护的是面向 Mori 使用者的产品手册，重点回答三个问题：
 
 1. 这个功能可以实现什么。
 2. 用户应该如何操作。
@@ -21,6 +21,7 @@ WDM 主项目位于相邻目录 `../wdm`，权威工程文档为 `../wdm/docs`�
 | 用户文档 | 主要事实来源 |
 | --- | --- |
 | 工作报告 | `wdm/docs/domains/work-report.md` |
+| 知识档案 | `wdm/docs/domains/knowledge-library.md` |
 | 提示词库、脚本库 | `wdm/docs/domains/ai-assets.md` |
 | 避坑智库 | `wdm/docs/domains/pitfall-library.md` |
 | 分享码与导入 | `wdm/docs/domains/asset-sharing.md` |
@@ -29,7 +30,7 @@ WDM 主项目位于相邻目录 `../wdm`，权威工程文档为 `../wdm/docs`�
 | 自动任务 | `wdm/docs/domains/automation.md` |
 | 通知渠道 | `wdm/docs/domains/channels.md` |
 | 账号、登录与权限 | `wdm/docs/domains/identity-access.md`、`wdm/docs/standards/security.md` |
-| 专家名片与 MCP 接入 | `wdm/docs/domains/identity-access.md` 的专家名片与 MCP 授权章节 |
+| 工作空间与 MCP 接入 | `wdm/docs/domains/identity-access.md` 的工作空间配置与 MCP 授权章节 |
 | AI 与脚本安全 | `wdm/docs/architecture/ai-layer.md`、`wdm/docs/standards/security.md` |
 | 系统整体能力 | `wdm/docs/architecture/overview.md` 与上述领域文档 |
 
@@ -49,6 +50,7 @@ docs/src/content/docs/
 │   ├── prompts.md
 │   ├── scripts.md
 │   ├── pitfalls.md
+│   ├── knowledge.md
 │   ├── sharing.md
 │   ├── tags.md
 │   ├── automation.md
