@@ -9,6 +9,9 @@ export default defineConfig({
   outDir: '../dist/docs',
   emptyOutDir: false,
   trailingSlash: 'always',
+  redirects: {
+    '/guides/sharing/': `${base.replace(/\/$/, '')}/reference/faq/#旧分享码还能使用吗`,
+  },
   integrations: [
     starlight({
       title: 'Mori 文档',
@@ -29,7 +32,7 @@ export default defineConfig({
         {
           icon: 'github',
           label: 'GitHub',
-          href: 'https://github.com/lee-kernel/wdm-site',
+          href: 'https://github.com/lee-kernel/mori',
         },
       ],
       head: [
@@ -57,7 +60,6 @@ export default defineConfig({
             'guides/scripts',
             'guides/pitfalls',
             'guides/knowledge',
-            'guides/sharing',
             'guides/tags',
             'guides/automation',
             'guides/notifications',

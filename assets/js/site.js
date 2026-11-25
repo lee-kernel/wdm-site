@@ -5,11 +5,11 @@ const menuButton = document.querySelector("#menuToggle");
 const navLinks = document.querySelector("#navLinks");
 const productImage = document.querySelector("#productImage");
 const screens = {
-  home: { src: "assets/images/home-screen_light.png", width: 2560, height: 1360, zh: "Mori 浅色工作台界面", en: "Mori light workspace" },
-  dark: { src: "assets/images/home-screen_dark.png", width: 2560, height: 1360, zh: "Mori 深色工作台界面", en: "Mori dark workspace" },
-  reports: { src: "assets/images/report-editor.png", width: 1440, height: 850, zh: "Mori 空白日报编辑器", en: "Mori blank daily report editor" },
-  prompts: { src: "assets/images/prompt-editor.png", width: 1440, height: 850, zh: "Mori 文本提示词与变量编辑器", en: "Mori text prompt and variable editor" },
-  login: { src: "assets/images/login-screen.png", width: 2560, height: 1360, zh: "Mori 工作台登录页截图", en: "Mori workspace sign-in screenshot" },
+  home: { src: "assets/images/home-screen_light.png", width: 1280, height: 720, zh: "Mori 浅色工作台界面", en: "Mori light workspace" },
+  dark: { src: "assets/images/home-screen_dark.png", width: 1280, height: 720, zh: "Mori 深色工作台界面", en: "Mori dark workspace" },
+  reports: { src: "assets/images/report-editor.png", width: 1280, height: 720, zh: "Mori 空白日报编辑器", en: "Mori blank daily report editor" },
+  prompts: { src: "assets/images/prompt-editor.png", width: 1280, height: 720, zh: "Mori 文本提示词与变量编辑器", en: "Mori text prompt and variable editor" },
+  login: { src: "assets/images/login-screen.png", width: 1280, height: 720, zh: "Mori 工作台登录页截图", en: "Mori workspace sign-in screenshot" },
 };
 const translations = [...document.querySelectorAll("[data-en]")].map(
   (node) => ({ node, zh: node.innerHTML, en: node.dataset.en }),

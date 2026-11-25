@@ -4,7 +4,7 @@ const { title, tagline, actions = [] } = Astro.locals.starlightRoute.entry.data.
 
 <section class="docs-hero" aria-labelledby="_top">
   <div class="docs-hero-copy">
-    <p class="docs-kicker"><span></span> WDM / 使用手册</p>
+    <p class="docs-kicker"><span></span> Mori / 使用手册</p>
     <h1 id="_top" data-page-title set:html={title} />
     <p class="docs-hero-description" set:html={tagline} />
     <div class="docs-hero-actions">
@@ -67,7 +67,7 @@ const { title, tagline, actions = [] } = Astro.locals.starlightRoute.entry.data.
         host!.classList.add('halo-ready');
         toggle!.hidden = false;
       } catch (error) {
-        console.warn('[WDM docs] Halo unavailable; showing the static background.', error);
+        console.warn('[Mori docs] Halo unavailable; showing the static background.', error);
         failed = true;
         destroy();
         toggle!.hidden = true;

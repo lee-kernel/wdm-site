@@ -1,6 +1,6 @@
 # Mori 宣传站与用户文档维护指南
 
-本仓库同时发布 Mori 宣传站和 Starlight 用户文档：宣传站位于 `/`，文档站位于 `/docs/`。内部工程标识和相邻主项目目录仍为 WDM。本文说明如何根据主项目更新用户文档。
+本仓库同时发布 Mori 宣传站和 Starlight 用户文档：宣传站位于 `/`，文档站位于 `/docs/`。主项目位于相邻的 Mori 仓库。本文说明如何根据主项目更新用户文档。
 
 ## 文档定位
 
@@ -14,27 +14,26 @@
 
 ## 事实来源
 
-WDM 主项目位于相邻目录 `../wdm`，权威工程文档为 `../wdm/docs`。当前 Windows 工作区对应 `F:\Dev\Workspace\wdm\docs`。
+Mori 主项目位于相邻目录 `../mori`，权威工程文档为 `../mori/docs`。当前 Windows 工作区对应 `F:\Dev\Workspace\mori\docs`。
 
 更新用户文档前，按功能读取相关事实来源：
 
 | 用户文档 | 主要事实来源 |
 | --- | --- |
-| 工作报告 | `wdm/docs/domains/work-report.md` |
-| 知识档案 | `wdm/docs/domains/knowledge-library.md` |
-| 提示词库、脚本库 | `wdm/docs/domains/ai-assets.md` |
-| 避坑智库 | `wdm/docs/domains/pitfall-library.md` |
-| 分享码与导入 | `wdm/docs/domains/asset-sharing.md` |
-| 数据备份与还原 | `wdm/docs/domains/private-backup.md` |
-| 标签 | `wdm/docs/domains/tags.md` |
-| 自动任务 | `wdm/docs/domains/automation.md` |
-| 通知渠道 | `wdm/docs/domains/channels.md` |
-| 账号、登录与权限 | `wdm/docs/domains/identity-access.md`、`wdm/docs/standards/security.md` |
-| 工作空间与 MCP 接入 | `wdm/docs/domains/identity-access.md` 的工作空间配置与 MCP 授权章节 |
-| AI 与脚本安全 | `wdm/docs/architecture/ai-layer.md`、`wdm/docs/standards/security.md` |
-| 系统整体能力 | `wdm/docs/architecture/overview.md` 与上述领域文档 |
+| 工作报告 | `../mori/docs/domains/work-report.md` |
+| 知识档案 | `../mori/docs/domains/knowledge-library.md` |
+| 提示词库、脚本库 | `../mori/docs/domains/ai-assets.md` |
+| 避坑智库 | `../mori/docs/domains/pitfall-library.md` |
+| 数据备份与还原 | `../mori/docs/domains/private-backup.md` |
+| 标签 | `../mori/docs/domains/tags.md` |
+| 自动任务 | `../mori/docs/domains/automation.md` |
+| 通知渠道 | `../mori/docs/domains/channels.md` |
+| 账号、登录与权限 | `../mori/docs/domains/identity-access.md`、`../mori/docs/standards/security.md` |
+| 工作空间与 MCP 接入 | `../mori/docs/domains/identity-access.md` 的工作空间配置与 MCP 授权章节 |
+| AI 与脚本安全 | `../mori/docs/architecture/ai-layer.md`、`../mori/docs/standards/security.md` |
+| 系统整体能力 | `../mori/docs/architecture/overview.md` 与上述领域文档 |
 
-如果工程文档与实际产品界面不一致，应先在 WDM 主项目中确认真实行为并修正权威文档，再更新这里的用户说明。不要根据宣传文案反向推断业务规则。
+如果工程文档与实际产品界面不一致，应先在 Mori 主项目中确认真实行为并修正权威文档，再更新这里的用户说明。不要根据宣传文案反向推断业务规则。
 
 ## 文档目录
 
@@ -51,7 +50,6 @@ docs/src/content/docs/
 │   ├── scripts.md
 │   ├── pitfalls.md
 │   ├── knowledge.md
-│   ├── sharing.md
 │   ├── tags.md
 │   ├── automation.md
 │   ├── notifications.md
@@ -76,7 +74,7 @@ docs/src/content/docs/
 
 ## 更新现有文档
 
-1. 在 `../wdm/docs` 中读取相关领域、架构和安全文档。
+1. 在 `../mori/docs` 中读取相关领域、架构和安全文档。
 2. 列出本次功能变化对用户可见的影响，包括入口、操作、限制和失败条件。
 3. 找到 `docs/src/content/docs/` 中对应页面，更新“能做什么”“如何操作”“注意事项”。
 4. 同步检查 `overview.md`、`getting-started.md` 和 `reference/faq.md` 是否需要调整。
@@ -140,7 +138,7 @@ _先记录事实，再检查 AI 整理出的候选内容。_
 
 6. 运行生产构建，并分别检查深色、浅色和窄屏布局。功能界面发生明显变化时，同步替换截图和相关操作说明。
 
-教程配图基准为 **1440×900、100% 页面缩放**，不是把窄小浏览器画面拉伸为大图。编辑页移除顶部 50px 账号栏后保存为 1440×850；弹窗与抽屉只裁切表单，避免遮罩下仍可辨认的业务信息。工作台概览后续更新为 2560×1356，邮箱与 IP 使用展示替换值；尺寸与脱敏方式以截图清单为准。
+使用桌面视口和 100% 页面缩放采集截图，保留原始尺寸。优先使用空白演示实例。若截图背景包含账号或业务数据，裁切到表单区域或先完成脱敏。实际尺寸与来源见 [截图清单](docs/screenshots.md)。
 
 折叠菜单有时会把子菜单 SVG 裁到左边缘，采集整页时应展开侧栏，并等待布局稳定后逐张检查。原图说明见 [截图清单](docs/screenshots.md)。文档截图由 `docs/public/screenshots.js` 提供放大、适应窗口和原始尺寸查看，支持 Escape 关闭与键盘焦点恢复。宣传页复用的图片位于 `assets/images/`，替换时同步更新两处。
 
@@ -150,9 +148,8 @@ _先记录事实，再检查 AI 整理出的候选内容。_
 - 先说明用户目标，再给操作步骤，最后写限制和风险。
 - 不把 AI 输出描述为已经审核的事实。
 - 不把私有资产描述为默认团队共享。
-- 提示词与脚本均为本人私有资产；跨账号传递使用分享码，不再描述公共脚本发布。
+- 提示词与脚本均为本人私有资产。
 - 提示词只使用文本正文、变量和默认值，不再描述结构化编辑模式。
-- 分享码传递生成时的固定快照，不开放原资产，也不复制对方个人标签。
 - 备份导入与覆盖还原必须分清；还原后任务暂停，Webhook 接入信息需更新。
 - 自动任务相关页面应说明触发方式、最新配置读取规则和执行日志。
 - 安全内容应给出可执行建议，不公开密钥、内部地址或敏感配置值。
@@ -228,7 +225,7 @@ DOCS_BASE=/wdm-site/docs
 
 ## 提交前检查清单
 
-- [ ] 内容事实已从 `../wdm/docs` 核对。
+- [ ] 内容事实已从 `../mori/docs` 核对。
 - [ ] 工程语言已改写为用户语言，没有直接照搬内部文档。
 - [ ] 功能说明包含操作方法和必要注意事项。
 - [ ] 新页面已加入 Starlight 侧边栏。
